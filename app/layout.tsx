@@ -1,17 +1,24 @@
+// app/layout.tsx
 import "./global.css";
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from "next";
+
 export const metadata: Metadata = {
-  title: 'MPN — Media Pemuda Nusantara',
-  description: 'Jasa livestreaming YouTube profesional.',
+  title: "Media Pemuda Nusantara",
+  description: "Jasa Live Streaming & Dokumentasi",
 };
+
+// ✅ ini penting untuk mobile
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+};
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="id">
-      <body>
-        {children}
-        <footer style={{borderTop:'1px solid #eee', marginTop:64}}>
-          <div style={{maxWidth:1120, margin:'0 auto', padding:'24px 16px', color:'#666'}}>© {new Date().getFullYear()} MPN</div>
-        </footer>
+      <body className="min-h-screen bg-gray-100 text-gray-900 antialiased">
+        {/* ✅ pembungkus agar lebar maksimal enak di berbagai layar */}
+        <div className="container px-4 md:px-6">{children}</div>
       </body>
     </html>
   );
