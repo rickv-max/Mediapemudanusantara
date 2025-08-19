@@ -99,7 +99,7 @@ export default function Home() {
       >
         <div>
           <h1 className="text-3xl sm:text-5xl font-bold leading-tight mb-4 sm:mb-6 text-teal-800">
-            Komunitas Jasa Live Streaming & Dokumentasi
+             Jasa Live Streaming & Dokumentasi
           </h1>
           <p className="mb-6 sm:mb-8 text-lg text-gray-600">
             MPN membantu brand, event, dan institusi menghadirkan siaran langsung
