@@ -2,54 +2,46 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ========== Custom Style ========== */
-/* Pastikan semua elemen ikut ukuran layar */
+/* ========== Reset & Global Style ========== */
 * {
   box-sizing: border-box;
   max-width: 100%;
 }
 
-/* Untuk body biar tidak ada scroll horizontal */
 body {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
 }
 
-/* Default font-size & spacing di mobile */
+/* Ukuran font default */
 html {
-  font-size: 14px;
+  font-size: 13px; /* lebih kecil di HP */
 }
 
 @media (min-width: 640px) {
   html {
-    font-size: 16px;
+    font-size: 15px; /* tablet */
   }
 }
 
 @media (min-width: 1024px) {
   html {
-    font-size: 18px;
+    font-size: 17px; /* desktop */
   }
 }
 
-/* Gambar biar otomatis menyesuaikan */
+/* Biar gambar gak keluar layar */
 img {
   max-width: 100%;
   height: auto;
   display: block;
 }
 
-/* Container versi mobile = full, desktop = ada batas */
+/* Container full width */
 .container {
   width: 100%;
-  margin: 0 auto;
-  padding: 0; /* default no padding */
-}
-
-@media (min-width: 768px) {
-  .container {
-    max-width: 1200px;   /* batas di desktop */
-    padding: 0 1rem;     /* kasih spasi kanan kiri */
-  }
+  max-width: 100%; /* hilangkan batas max-width */
+  margin: 0;
+  padding: 0; /* tanpa padding kanan kiri */
 }
