@@ -185,7 +185,7 @@ export default function Home() {
   whileInView={{ opacity: 1, y: 0 }}
   transition={{ duration: 0.8 }}
   viewport={{ once: true }}
-  className="px-2 sm:px-8 py-16 sm:py-20 bg-gradient-to-br from-gray-200 to-gray-100 text-gray-900"
+  className="px-4 sm:px-8 py-16 sm:py-20 bg-gradient-to-br from-gray-200 to-gray-100 text-gray-900"
 >
   <h2 className="text-3xl font-bold mb-8 sm:mb-12 text-center text-teal-700">
     Paket Layanan
@@ -194,87 +194,65 @@ export default function Home() {
   {/* --- Grid Paket Utama (Reguler + Premium) --- */}
   <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto mb-12">
     {/* Paket Reguler */}
-    <div className="aspect-[4/3] p-4 rounded-xl shadow-lg bg-teal-700 text-white flex flex-col justify-between hover:scale-105 transition transform">
-      <div>
-        <h3 className="text-lg font-bold mb-2">
-          Rp. 750.000 <span className="text-sm font-normal">/ Paket Reguler</span>
-        </h3>
-        <ul className="space-y-1 text-teal-100 text-sm">
-          <li>📷 2 Camera</li>
-          <li>💻 Capture Card</li>
-          <li>▶️ Live Youtube / Facebook</li>
-          <li>🎞️ Record Full HD</li>
-        </ul>
-      </div>
+    <div className="p-6 rounded-xl shadow-lg bg-teal-700 text-white hover:scale-105 transition transform">
+      <h3 className="text-lg font-bold mb-3">
+        Rp. 750.000 <span className="text-sm font-normal">/ Paket Reguler</span>
+      </h3>
+      <ul className="space-y-1 text-teal-100 text-sm mb-3">
+        <li>📷 2 Camera</li>
+        <li>💻 Capture Card</li>
+        <li>▶️ Live Youtube / Facebook</li>
+        <li>🎞️ Record Full HD</li>
+      </ul>
       <button
         onClick={() => pesanWhatsApp("Paket Reguler")}
-        className="mt-4 px-4 py-2 bg-white text-teal-700 rounded-lg text-sm font-medium hover:bg-gray-200 transition w-fit"
+        className="mt-2 px-4 py-2 bg-white text-teal-700 rounded-lg text-sm font-medium hover:bg-gray-200 transition"
       >
         Pesan Sekarang
       </button>
     </div>
 
     {/* Paket Premium */}
-    <div className="aspect-[4/3] p-4 rounded-xl shadow-lg bg-teal-800 text-white flex flex-col justify-between hover:scale-105 transition transform">
-      <div>
-        <h3 className="text-lg font-bold mb-2">
-          Rp. 1.500.000 <span className="text-sm font-normal">/ Paket Premium</span>
-        </h3>
-        <ul className="space-y-1 text-teal-100 text-sm">
-          <li>📷 3 Camera</li>
-          <li>💻 Capture Card</li>
-          <li>▶️ Multi Live Platform</li>
-          <li>🎥 Drone (1 baterai)</li>
-          <li>🎞️ Record Full HD</li>
-        </ul>
-      </div>
+    <div className="p-6 rounded-xl shadow-lg bg-teal-800 text-white hover:scale-105 transition transform">
+      <h3 className="text-lg font-bold mb-3">
+        Rp. 1.500.000 <span className="text-sm font-normal">/ Paket Premium</span>
+      </h3>
+      <ul className="space-y-1 text-teal-100 text-sm mb-3">
+        <li>📷 3 Camera</li>
+        <li>💻 Capture Card</li>
+        <li>▶️ Multi Live Platform</li>
+        <li>🎥 Drone (1 baterai)</li>
+        <li>🎞️ Record Full HD</li>
+      </ul>
       <button
         onClick={() => pesanWhatsApp("Paket Premium")}
-        className="mt-4 px-4 py-2 bg-white text-teal-800 rounded-lg text-sm font-medium hover:bg-gray-200 transition w-fit"
+        className="mt-2 px-4 py-2 bg-white text-teal-800 rounded-lg text-sm font-medium hover:bg-gray-200 transition"
       >
         Pesan Sekarang
       </button>
     </div>
   </div>
 
-          {/* --- Grid Layanan Tambahan --- */}
-<h3 className="text-2xl font-semibold text-center text-teal-600 mb-6">
-  Layanan Tambahan
-</h3>
-<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-  {[
-    { 
-      title: "Layar + Proyektor", 
-      harga: "Rp. 150.000",
-      desc: "Proyektor + Layar besar untuk acara."
-    },
-    { 
-      title: "Drone (1 Baterai)", 
-      harga: "Rp. 400.000",
-      desc: "Drone liputan udara, 1 baterai (±20 menit terbang)."
-    },
-    { 
-      title: "Videographer", 
-      harga: "Rp. 300.000",
-      desc: "1 Video full acara dengan kualitas HD."
-    },
-    { 
-      title: "Fotographer", 
-      type: "checkbox",
-      desc: "Pilihan jumlah foto sesuai kebutuhan."
-    },
-  ].map((layanan, i) => (
-    <div
-      key={i}
-      className="aspect-[4/3] p-4 rounded-xl shadow-lg bg-white text-gray-800 flex flex-col justify-between hover:scale-105 transition transform"
-    >
-      <div>
+  {/* --- Grid Layanan Tambahan --- */}
+  <h3 className="text-2xl font-semibold text-center text-teal-600 mb-6">
+    Layanan Tambahan
+  </h3>
+  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+    {[
+      { title: "Layar + Proyektor", harga: "Rp. 150.000", desc: "Proyektor + Layar besar untuk acara." },
+      { title: "Drone (1 Baterai)", harga: "Rp. 400.000", desc: "Drone liputan udara, 1 baterai (±20 menit terbang)." },
+      { title: "Videographer", harga: "Rp. 300.000", desc: "1 Video full acara dengan kualitas HD." },
+      { title: "Fotographer", type: "checkbox", desc: "Pilihan jumlah foto sesuai kebutuhan." },
+    ].map((layanan, i) => (
+      <div
+        key={i}
+        className="p-6 rounded-xl shadow-lg bg-white text-gray-800 hover:scale-105 transition transform"
+      >
         <h4 className="text-lg font-semibold mb-1">{layanan.title}</h4>
         <p className="text-xs text-gray-500 mb-3">{layanan.desc}</p>
 
-        {/* Jika tipe checkbox (khusus Fotographer) */}
         {layanan.type === "checkbox" ? (
-          <div className="space-y-2 text-sm">
+          <div className="space-y-2 text-sm mb-3">
             <label className="flex items-center gap-2">
               <input type="checkbox" className="w-4 h-4" /> 1 Rol (30 Foto) – Rp. 75.000
             </label>
@@ -283,20 +261,20 @@ export default function Home() {
             </label>
           </div>
         ) : (
-          <p className="text-indigo-600 font-bold">{layanan.harga}</p>
+          <p className="text-teal-700 font-bold mb-3">{layanan.harga}</p>
         )}
-      </div>
 
-      <button
-        onClick={() => pesanWhatsApp(layanan.title)}
-        className="mt-4 px-4 py-2 bg-green-600 text-white rounded-lg text-sm font-medium hover:bg-green-700 transition w-fit"
-      >
-        Pesan Sekarang
-      </button>
-    </div>
-  ))}
-</div>
+        <button
+          onClick={() => pesanWhatsApp(layanan.title)}
+          className="mt-2 px-4 py-2 bg-teal-700 text-white rounded-lg text-sm font-medium hover:bg-teal-800 transition"
+        >
+          Pesan Sekarang
+        </button>
+      </div>
+    ))}
+  </div>
 </motion.section>
+
 
       {/* Portofolio */}
       <motion.section
