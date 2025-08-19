@@ -27,7 +27,7 @@ export default function Home() {
             height={32}
             className="rounded-full"
           />
-          <span className="text-lg sm:text-2xl font-bold text-teal-700">
+          <span className="text-xl sm:text-2xl font-bold text-teal-700">
             Media Pemuda Nusantara
           </span>
         </div>
@@ -60,23 +60,23 @@ export default function Home() {
         className="grid grid-cols-1 md:grid-cols-2 items-center px-2 sm:px-8 py-16 sm:py-20 gap-8 sm:gap-12"
       >
         <div>
-          <h1 className="text-2xl sm:text-5xl font-bold leading-tight mb-4 sm:mb-6 text-teal-800">
+          <h1 className="text-3xl sm:text-5xl font-bold leading-tight mb-4 sm:mb-6 text-teal-800">
             Komunitas Jasa Live Streaming & Dokumentasi
           </h1>
-          <p className="mb-6 sm:mb-8 text-base sm:text-lg text-gray-600">
+          <p className="mb-6 sm:mb-8 text-lg text-gray-600">
             MPN membantu brand, event, dan institusi menghadirkan siaran langsung
             berkualitas serta dokumentasi foto/video yang rapi dan profesional.
           </p>
           <div className="flex gap-3 sm:gap-4">
             <a
               href="#kontak"
-              className="px-4 sm:px-6 py-2 sm:py-3 rounded-lg bg-teal-600 hover:bg-teal-700 transition text-white text-sm sm:text-base"
+              className="px-5 py-2 sm:px-6 sm:py-3 rounded-lg bg-teal-600 hover:bg-teal-700 transition text-white"
             >
               Hubungi Kami
             </a>
             <a
               href="#portofolio"
-              className="px-4 sm:px-6 py-2 sm:py-3 rounded-lg border border-teal-600 text-teal-600 hover:bg-teal-600 hover:text-white transition text-sm sm:text-base"
+              className="px-5 py-2 sm:px-6 sm:py-3 rounded-lg border border-teal-600 text-teal-600 hover:bg-teal-600 hover:text-white transition"
             >
               Lihat Portofolio →
             </a>
@@ -122,88 +122,120 @@ export default function Home() {
         viewport={{ once: true }}
         className="px-2 sm:px-8 py-16 sm:py-20 bg-gradient-to-br from-gray-200 to-gray-100 text-gray-900"
       >
-        <h2 className="text-2xl sm:text-3xl font-bold mb-8 sm:mb-12 text-center text-teal-700">
+        <h2 className="text-3xl font-bold mb-8 sm:mb-12 text-center text-teal-700">
           Paket Layanan
         </h2>
 
-        <div className="grid md:grid-cols-2 gap-6 sm:gap-8 max-w-5xl mx-auto">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 max-w-6xl mx-auto">
           {/* Paket Reguler */}
-          <div className="p-6 sm:p-8 rounded-xl shadow-lg bg-teal-700 text-white hover:scale-105 transition transform cursor-pointer">
-            <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">
+          <div className="p-6 rounded-xl shadow-lg bg-teal-700 text-white hover:scale-105 transition transform">
+            <h3 className="text-xl font-bold mb-3">
               Rp. 750.000{" "}
               <span className="text-sm font-normal">/ Paket Reguler</span>
             </h3>
-            <ul className="space-y-1 sm:space-y-2 text-teal-100 text-sm sm:text-base">
+            <ul className="space-y-1 text-teal-100">
               <li>📷 2 Camera</li>
               <li>💻 Capture Card</li>
               <li>▶️ Live Youtube / Facebook</li>
               <li>🎞️ Record Full HD</li>
             </ul>
-            <a
-              href="https://wa.me/6285856618965?text=Halo,%20saya%20mau%20pesan%20Paket%20Reguler"
-              target="_blank"
-              className="mt-4 sm:mt-6 inline-block px-4 sm:px-5 py-2 bg-white text-teal-700 rounded-lg font-medium hover:bg-gray-100 text-sm sm:text-base"
-            >
-              Pesan Sekarang
-            </a>
           </div>
 
           {/* Paket Premium */}
-          <div className="p-6 sm:p-8 rounded-xl shadow-lg bg-teal-500 text-white hover:scale-105 transition transform cursor-pointer">
-            <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">
+          <div className="p-6 rounded-xl shadow-lg bg-teal-500 text-white hover:scale-105 transition transform">
+            <h3 className="text-xl font-bold mb-3">
               Rp. 1.050.000{" "}
               <span className="text-sm font-normal">/ Paket Premium</span>
             </h3>
-            <ul className="space-y-1 sm:space-y-2 text-teal-50 text-sm sm:text-base">
+            <ul className="space-y-1 text-teal-50">
               <li>📷 3 Camera</li>
               <li>💻 Capture Card</li>
               <li>▶️ Live Youtube / Facebook</li>
               <li>🎞️ Record Full HD</li>
             </ul>
-            <a
-              href="https://wa.me/6285856618965?text=Halo,%20saya%20mau%20pesan%20Paket%20Premium"
-              target="_blank"
-              className="mt-4 sm:mt-6 inline-block px-4 sm:px-5 py-2 bg-white text-teal-700 rounded-lg font-medium hover:bg-gray-100 text-sm sm:text-base"
-            >
-              Pesan Sekarang
-            </a>
+          </div>
+
+          {/* Jasa Videographer */}
+          <div className="p-6 rounded-xl shadow-lg bg-gray-100 hover:scale-105 transition transform">
+            <h3 className="text-xl font-bold mb-3 text-gray-800">
+              Jasa Videographer
+            </h3>
+            <p className="text-gray-600">Rp. 500.000 / hari</p>
+          </div>
+
+          {/* Jasa Photographer */}
+          <div className="p-6 rounded-xl shadow-lg bg-gray-100 hover:scale-105 transition transform">
+            <h3 className="text-xl font-bold mb-3 text-gray-800">
+              Jasa Photographer
+            </h3>
+            <p className="text-gray-600">Rp. 400.000 / hari</p>
+          </div>
+
+          {/* Layar + Proyektor */}
+          <div className="p-6 rounded-xl shadow-lg bg-gray-100 hover:scale-105 transition transform">
+            <h3 className="text-xl font-bold mb-3 text-gray-800">
+              Layar + Proyektor
+            </h3>
+            <p className="text-gray-600">Rp. 150.000</p>
+          </div>
+
+          {/* Drone */}
+          <div className="p-6 rounded-xl shadow-lg bg-gray-100 hover:scale-105 transition transform">
+            <h3 className="text-xl font-bold mb-3 text-gray-800">Drone</h3>
+            <p className="text-gray-600">Rp. 400.000 / per 1 baterai</p>
           </div>
         </div>
       </motion.section>
 
       {/* Portofolio */}
-      <motion.section
-        id="portofolio"
-        initial={{ opacity: 0, y: 60 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        viewport={{ once: true }}
-        className="px-2 sm:px-8 py-16 sm:py-20"
-      >
-        <h2 className="text-2xl sm:text-3xl font-bold mb-8 sm:mb-12 text-center text-teal-700">
-          Portofolio
-        </h2>
+<motion.section
+  id="portofolio"
+  initial={{ opacity: 0, y: 60 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.8 }}
+  viewport={{ once: true }}
+  className="px-2 sm:px-8 py-16 sm:py-20 overflow-hidden"
+>
+  <h2 className="text-3xl font-bold mb-8 sm:mb-12 text-center text-teal-700">
+    Portofolio
+  </h2>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2 sm:gap-4">
-          {portfolio.length > 0 ? (
-            portfolio.map((item: any, index: number) => (
-              <div key={index} className="rounded-lg overflow-hidden shadow">
-                <Image
-                  src={item.image}
-                  alt={item.title}
-                  width={400}
-                  height={300}
-                  className="object-cover w-full h-32 sm:h-40"
-                />
-              </div>
-            ))
+  <div className="relative w-full overflow-hidden">
+    <motion.div
+      className="flex gap-4"
+      animate={{ x: ["0%", "-100%"] }}
+      transition={{ repeat: Infinity, duration: 20, ease: "linear" }}
+    >
+      {(portfolio.length > 0 ? portfolio : [
+        { image: "/placeholder1.jpg", title: "Project 1" },
+        { image: "/placeholder2.jpg", title: "Project 2" },
+        { image: "/placeholder3.jpg", title: "Project 3" },
+        { image: "/placeholder4.jpg", title: "Project 4" },
+      ]).map((item: any, index: number) => (
+        <div
+          key={index}
+          className="flex-shrink-0 w-64 h-40 rounded-lg overflow-hidden shadow-lg bg-gray-200"
+        >
+          {item.image.endsWith(".mp4") ? (
+            <video
+              src={item.image}
+              className="object-cover w-full h-full"
+              controls
+            />
           ) : (
-            <p className="col-span-full text-center text-gray-500 text-sm sm:text-base">
-              Belum ada data portofolio.
-            </p>
+            <Image
+              src={item.image}
+              alt={item.title}
+              width={400}
+              height={300}
+              className="object-cover w-full h-full"
+            />
           )}
         </div>
-      </motion.section>
+      ))}
+    </motion.div>
+  </div>
+</motion.section>
 
       {/* Tentang Kami */}
       <motion.section
@@ -214,10 +246,10 @@ export default function Home() {
         viewport={{ once: true }}
         className="px-2 sm:px-8 py-16 sm:py-20 bg-gray-50"
       >
-        <h2 className="text-2xl sm:text-3xl font-bold mb-6 sm:mb-10 text-center text-teal-700">
+        <h2 className="text-3xl font-bold mb-6 sm:mb-10 text-center text-teal-700">
           Tentang Kami
         </h2>
-        <p className="max-w-3xl mx-auto text-center text-base sm:text-lg text-gray-600">
+        <p className="max-w-3xl mx-auto text-center text-lg text-gray-600">
           Media Pemuda Nusantara adalah komunitas kreatif yang bergerak di bidang
           live streaming, dokumentasi acara, fotografi, dan videografi.
           <br />
@@ -235,15 +267,15 @@ export default function Home() {
         viewport={{ once: true }}
         className="px-2 sm:px-8 py-16 sm:py-20 bg-gradient-to-r from-teal-600 to-teal-500 text-white"
       >
-        <h2 className="text-2xl sm:text-3xl font-bold mb-6 sm:mb-10 text-center">
+        <h2 className="text-3xl font-bold mb-6 sm:mb-10 text-center">
           Hubungi Kami
         </h2>
-        <div className="max-w-xl mx-auto space-y-3 sm:space-y-4 text-center">
-          <p className="text-sm sm:text-base">📍 Jakarta, Indonesia</p>
-          <p className="text-sm sm:text-base">
+        <div className="max-w-xl mx-auto space-y-3 text-center">
+          <p>📍 Jakarta, Indonesia</p>
+          <p>
             📞 <a href="tel:+6285856618965">+62 858-5661-8965</a>
           </p>
-          <p className="text-sm sm:text-base">
+          <p>
             ✉️{" "}
             <a href="mailto:mediapemudanusantara@gmail.com">
               mediapemudanusantara@gmail.com
@@ -253,7 +285,7 @@ export default function Home() {
       </motion.section>
 
       {/* Footer */}
-      <footer className="px-2 sm:px-8 py-4 bg-gray-900 text-gray-400 text-center text-xs sm:text-sm">
+      <footer className="px-2 sm:px-8 py-4 bg-gray-900 text-gray-400 text-center text-sm">
         © {new Date().getFullYear()} Media Pemuda Nusantara. All rights reserved.
       </footer>
     </div>
