@@ -26,23 +26,25 @@ export default function Home() {
   }, []);
 
   // Auto scroll portfolio
-useEffect(() => {
-  const interval = setInterval(() => {
-    if (portfolioRef.current) {
-      portfolioRef.current.scrollBy({ left: 220 }); // tidak smooth
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (portfolioRef.current) {
+        portfolioRef.current.scrollBy({
+          left: 220,
+          behavior: "smooth", // ✅ biar smooth
+        });
 
-      // reset ke awal jika sudah mentok
-      if (
-        portfolioRef.current.scrollLeft + portfolioRef.current.clientWidth >=
-        portfolioRef.current.scrollWidth
-      ) {
-        portfolioRef.current.scrollTo({ left: 0 }); // langsung lompat
+        if (
+          portfolioRef.current.scrollLeft + portfolioRef.current.clientWidth >=
+          portfolioRef.current.scrollWidth
+        ) {
+          portfolioRef.current.scrollTo({ left: 0, behavior: "smooth" });
+        }
       }
-    }
-  }, 3000);
+    }, 3000);
 
-  return () => clearInterval(interval);
-}, []);
+    return () => clearInterval(interval);
+  }, []);
 
   // Fungsi redirect WhatsApp
   const pesanWhatsApp = (layanan: string) => {
