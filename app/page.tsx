@@ -119,16 +119,28 @@ useEffect(() => {
           </div>
         </div>
 
-        <div className="flex flex-col items-center">
-          <div className="w-full h-48 sm:h-64 bg-gray-300 rounded-xl flex items-center justify-center mb-4 shadow-md overflow-hidden">
-            <Image
-              src={selectedImage}
-              alt="Preview"
-              width={500}
-              height={250}
-              className="object-cover w-full h-full"
-            />
-          </div>
+        {/* Preview utama */}
+<div className="w-full h-48 sm:h-64 bg-gray-300 rounded-xl flex items-center justify-center mb-4 shadow-md overflow-hidden">
+  {selectedImage.endsWith(".mp4") ? (
+    <video
+      src={selectedImage}
+      autoPlay
+      muted
+      loop
+      playsInline
+      className="object-cover w-full h-full"
+    />
+  ) : (
+    <Image
+      src={selectedImage}
+      alt="Preview"
+      width={500}
+      height={250}
+      className="object-cover w-full h-full"
+    />
+  )}
+</div>
+
           <div className="grid grid-cols-3 gap-2 sm:gap-4 w-full">
   {["/thumb1.mp4", "/thumb2.jpg", "/thumb3.jpg"].map((media, i) => (
     <button
@@ -139,10 +151,11 @@ useEffect(() => {
       {media.endsWith(".mp4") ? (
         <video
           src={media}
-          className="object-cover w-full h-full"
+          autoPlay
           muted
           loop
           playsInline
+          className="object-cover w-full h-full"
         />
       ) : (
         <Image
