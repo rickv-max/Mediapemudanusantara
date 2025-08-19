@@ -26,23 +26,23 @@ export default function Home() {
   }, []);
 
   // Auto scroll portfolio
-  useEffect(() => {
-    const interval = setInterval(() => {
-      if (portfolioRef.current) {
-        portfolioRef.current.scrollBy({ left: 220, behavior: "smooth" });
+useEffect(() => {
+  const interval = setInterval(() => {
+    if (portfolioRef.current) {
+      portfolioRef.current.scrollBy({ left: 220 }); // tidak smooth
 
-        // reset ke awal jika sudah mentok
-        if (
-          portfolioRef.current.scrollLeft + portfolioRef.current.clientWidth >=
-          portfolioRef.current.scrollWidth
-        ) {
-          portfolioRef.current.scrollTo({ left: 0, behavior: "smooth" });
-        }
+      // reset ke awal jika sudah mentok
+      if (
+        portfolioRef.current.scrollLeft + portfolioRef.current.clientWidth >=
+        portfolioRef.current.scrollWidth
+      ) {
+        portfolioRef.current.scrollTo({ left: 0 }); // langsung lompat
       }
-    }, 3000);
+    }
+  }, 3000);
 
-    return () => clearInterval(interval);
-  }, []);
+  return () => clearInterval(interval);
+}, []);
 
   // Fungsi redirect WhatsApp
   const pesanWhatsApp = (layanan: string) => {
@@ -164,7 +164,7 @@ export default function Home() {
 
         <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-8 max-w-6xl mx-auto">
           {/* Paket Reguler */}
-          <div className="aspect-square p-4 rounded-xl shadow-lg bg-teal-700 text-white flex flex-col justify-between hover:scale-105 transition transform">
+          <div className="aspect-[4/5] p-4 rounded-xl shadow-lg bg-teal-700 text-white flex flex-col justify-between hover:scale-105 transition transform">
             <div>
               <h3 className="text-lg font-bold mb-2">
                 Rp. 750.000 <span className="text-sm font-normal">/ Paket Reguler</span>
@@ -185,7 +185,7 @@ export default function Home() {
           </div>
 
           {/* Paket Premium */}
-          <div className="aspect-square p-4 rounded-xl shadow-lg bg-teal-500 text-white flex flex-col justify-between hover:scale-105 transition transform">
+          <div className="aspect-[4/5] p-4 rounded-xl shadow-lg bg-teal-700 text-white flex flex-col justify-between hover:scale-105 transition transform">
             <div>
               <h3 className="text-lg font-bold mb-2">
                 Rp. 1.050.000{" "}
@@ -207,7 +207,7 @@ export default function Home() {
           </div>
 
           {/* Jasa Videographer */}
-          <div className="aspect-square p-4 rounded-xl shadow-lg bg-gray-100 flex flex-col justify-between hover:scale-105 transition transform">
+          <div className="aspect-[4/5] p-4 rounded-xl shadow-lg bg-teal-700 text-white flex flex-col justify-between hover:scale-105 transition transform">
             <div>
               <h3 className="text-lg font-bold mb-2 text-gray-800">Jasa Videographer</h3>
               <p className="text-gray-600 text-sm">1 Video Rp. 300.000</p>
@@ -221,7 +221,7 @@ export default function Home() {
           </div>
 
           {/* Jasa Photographer */}
-          <div className="aspect-square p-4 rounded-xl shadow-lg bg-gray-100 flex flex-col justify-between hover:scale-105 transition transform">
+          <div className="aspect-[4/5] p-4 rounded-xl shadow-lg bg-teal-700 text-white flex flex-col justify-between hover:scale-105 transition transform">
             <div>
               <h3 className="text-lg font-bold mb-2 text-gray-800">Jasa Photographer</h3>
               <select
@@ -242,7 +242,7 @@ export default function Home() {
           </div>
 
           {/* Layar + Proyektor */}
-          <div className="aspect-square p-4 rounded-xl shadow-lg bg-gray-100 flex flex-col justify-between hover:scale-105 transition transform">
+          <div className="aspect-[4/5] p-4 rounded-xl shadow-lg bg-teal-700 text-white flex flex-col justify-between hover:scale-105 transition transform">
             <div>
               <h3 className="text-lg font-bold mb-2 text-gray-800">Layar + Proyektor</h3>
               <p className="text-gray-600 text-sm">Rp. 150.000</p>
@@ -256,7 +256,7 @@ export default function Home() {
           </div>
 
           {/* Drone */}
-          <div className="aspect-square p-4 rounded-xl shadow-lg bg-gray-100 flex flex-col justify-between hover:scale-105 transition transform">
+          <div className="aspect-[4/5] p-4 rounded-xl shadow-lg bg-teal-700 text-white flex flex-col justify-between hover:scale-105 transition transform">
             <div>
               <h3 className="text-lg font-bold mb-2 text-gray-800">Drone</h3>
               <p className="text-gray-600 text-sm">Rp. 400.000 / per 1 baterai</p>
