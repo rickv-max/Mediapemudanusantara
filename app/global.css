@@ -2,28 +2,48 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ✅ Kontainer pusat: lebar nyaman di desktop, full di mobile */
-.container {
-  width: min(100% - 2rem, 1120px);
-  margin-inline: auto;
+/* ========== Custom Style ========== */
+/* Pastikan semua elemen ikut ukuran layar */
+* {
+  box-sizing: border-box;
+  max-width: 100%;
 }
 
-/* ✅ Semua media auto-scale */
-img,
-video {
+/* Untuk body biar tidak ada scroll horizontal */
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+/* Default font-size & spacing di mobile */
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 640px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+@media (min-width: 1024px) {
+  html {
+    font-size: 18px;
+  }
+}
+
+/* Gambar biar otomatis menyesuaikan */
+img {
   max-width: 100%;
   height: auto;
   display: block;
 }
 
-/* ✅ Embed video responsif (YouTube, dsb) */
-iframe {
+/* Grid dan flex default */
+.container {
   width: 100%;
-  aspect-ratio: 16 / 9; /* fallback elegan tanpa plugin */
-  border: 0;
-}
-
-/* ✅ Util opsional bila perlu */
-.no-shrink {
-  min-width: 0;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
 }
