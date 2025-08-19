@@ -40,18 +40,16 @@ img {
   display: block;
 }
 
+/* Container versi mobile = full, desktop = ada batas */
 .container {
   width: 100%;
-  max-width: 1200px;
   margin: 0 auto;
-  padding: 0; /* hilangkan padding default */
+  padding: 0; /* default no padding */
 }
 
-@media (max-width: 768px) {
+@media (min-width: 768px) {
   .container {
-    max-width: 100% !important;
-    margin: 0 !important;
-    padding: 0 !important;
+    max-width: 1200px;   /* batas di desktop */
+    padding: 0 1rem;     /* kasih spasi kanan kiri */
   }
 }
-
