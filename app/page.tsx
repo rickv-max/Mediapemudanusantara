@@ -38,9 +38,9 @@ export default function Home() {
 
   return (
     <div className="py-6 md:py-10">
-      {/* NAVBAR */}
-      <header className="sticky top-0 z-50 bg-white/90 backdrop-blur border-b border-gray-200 w-full">
-        <div className="flex items-center justify-between h-14 w-full px-0">
+      {/* NAVBAR SINGKAT (opsional, kalau ada navbar global bisa hapus) */}
+      <header className="sticky top-0 z-50 bg-white/90 backdrop-blur border-b border-gray-200">
+        <div className="flex items-center justify-between h-14">
           <div className="flex items-center gap-3">
             <Image src="/logo-mpn.png" alt="Logo MPN" width={36} height={36} />
             <span className="font-semibold text-teal-700">Media Pemuda Nusantara</span>
@@ -65,7 +65,7 @@ export default function Home() {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
-        className="grid grid-cols-1 md:grid-cols-2 items-center gap-8 md:gap-12 pt-8 md:pt-12 px-0"
+        className="grid grid-cols-1 md:grid-cols-2 items-center gap-8 md:gap-12 pt-8 md:pt-12"
       >
         <div className="space-y-6">
           <h1 className="text-3xl md:text-5xl font-bold leading-tight text-teal-800">
@@ -130,12 +130,12 @@ export default function Home() {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
-        className="py-16 md:py-20 px-0"
+        className="py-16 md:py-20"
       >
         <h2 className="text-2xl md:text-3xl font-bold mb-8 md:mb-12 text-center text-teal-700">
           Paket Layanan
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 w-full px-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 max-w-5xl mx-auto">
           <div className="p-6 md:p-8 rounded-xl shadow-lg bg-teal-700 text-white">
             <h3 className="text-xl md:text-2xl font-bold mb-4">
               Rp. 750.000 <span className="text-sm font-normal">/ Paket Reguler</span>
@@ -176,7 +176,7 @@ export default function Home() {
         </div>
 
         {/* Jasa Tambahan */}
-        <div className="mt-10 md:mt-12 grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 w-full px-4">
+        <div className="mt-10 md:mt-12 grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 max-w-5xl mx-auto">
           <div className="p-6 md:p-8 rounded-xl shadow-lg bg-white">
             <h3 className="text-xl md:text-2xl font-bold mb-4 text-gray-900">Jasa Videografer</h3>
             <ul className="space-y-2 text-gray-700">
@@ -225,7 +225,7 @@ export default function Home() {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
-        className="py-16 md:py-20 bg-gray-200 rounded-2xl px-0 w-full"
+        className="py-16 md:py-20 bg-gray-200 rounded-2xl"
       >
         <h2 className="text-2xl md:text-3xl font-bold mb-8 text-center text-teal-700">
           Portofolio
@@ -236,7 +236,7 @@ export default function Home() {
         ) : items.length === 0 ? (
           <p className="text-center text-gray-600">Belum ada item dipublish.</p>
         ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full px-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {items.map((it) => (
               <article key={it.id} className="bg-white rounded-xl shadow overflow-hidden">
                 <div className="relative w-full aspect-video">
@@ -272,12 +272,12 @@ export default function Home() {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
-        className="py-20 bg-white px-0 w-full"
+        className="px-8 py-20 bg-white"
       >
         <h2 className="text-3xl font-bold mb-8 text-center text-teal-700">
           Tentang Kami
         </h2>
-        <p className="mx-auto text-center text-lg text-gray-700 w-full px-4">
+        <p className="max-w-3xl mx-auto text-center text-lg text-gray-700">
           Media Pemuda Nusantara adalah komunitas kreatif yang bergerak di bidang
           live streaming & dokumentasi. Kami berkomitmen menghadirkan layanan
           terbaik dengan tim profesional.
@@ -291,12 +291,12 @@ export default function Home() {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
-        className="py-20 bg-gray-200 px-0 w-full"
+        className="px-8 py-20 bg-gray-200"
       >
         <h2 className="text-3xl font-bold mb-8 text-center text-teal-700">
           Hubungi Kami
         </h2>
-        <form className="space-y-4 w-full px-4">
+        <form className="max-w-xl mx-auto space-y-4">
           <input
             type="text"
             placeholder="Nama"
@@ -322,7 +322,7 @@ export default function Home() {
       </motion.section>
 
       {/* Footer */}
-      <footer className="text-center py-6 bg-gray-800 text-gray-200 border-t border-gray-700 w-full px-0">
+      <footer className="text-center py-6 bg-gray-800 text-gray-200 border-t border-gray-700">
         <p>© 2025 Media Pemuda Nusantara. All rights reserved.</p>
       </footer>
     </div>
