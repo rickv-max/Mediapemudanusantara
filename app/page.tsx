@@ -122,55 +122,56 @@ export default function Home() {
         </div>
 
         {/* Preview utama */}
-<div className="w-full h-48 sm:h-64 bg-gray-300 rounded-xl flex items-center justify-center mb-4 shadow-md overflow-hidden">
-  {selectedImage.endsWith(".mp4") ? (
-    <video
-      src={selectedImage}
-      autoPlay
-      muted
-      loop
-      playsInline
-      className="object-cover w-full h-full"
-    />
-  ) : (
-    <Image
-      src={selectedImage}
-      alt="Preview"
-      width={500}
-      height={250}
-      className="object-cover w-full h-full"
-    />
-  )}
-</div>
+        <div className="w-full h-48 sm:h-64 bg-gray-300 rounded-xl flex items-center justify-center mb-4 shadow-md overflow-hidden">
+          {selectedImage.endsWith(".mp4") ? (
+            <video
+              key={selectedImage} // ✅ biar refresh saat ganti video
+              src={selectedImage}
+              autoPlay
+              muted
+              loop
+              playsInline
+              className="object-cover w-full h-full"
+            />
+          ) : (
+            <Image
+              src={selectedImage}
+              alt="Preview"
+              width={500}
+              height={250}
+              className="object-cover w-full h-full"
+            />
+          )}
+        </div>
 
-          <div className="grid grid-cols-3 gap-2 sm:gap-4 w-full">
-  {["/thumb1.mp4", "/thumb2.jpg", "/thumb3.jpg"].map((media, i) => (
-    <button
-      key={i}
-      onClick={() => setSelectedImage(media)}
-      className="h-16 sm:h-20 bg-gray-300 rounded-xl shadow overflow-hidden"
-    >
-      {media.endsWith(".mp4") ? (
-        <video
-          src={media}
-          autoPlay
-          muted
-          loop
-          playsInline
-          className="object-cover w-full h-full"
-        />
-      ) : (
-        <Image
-          src={media}
-          alt={`Thumbnail ${i + 1}`}
-          width={100}
-          height={80}
-          className="object-cover w-full h-full"
-        />
-      )}
-    </button>
-  ))}
-</div>
+        {/* Grid kecil */}
+        <div className="grid grid-cols-3 gap-2 sm:gap-4 w-full">
+          {["/thumb1.mp4", "/thumb2.jpg", "/thumb3.jpg"].map((media, i) => (
+            <button
+              key={i}
+              onClick={() => setSelectedImage(media)}
+              className="h-16 sm:h-20 bg-gray-300 rounded-xl shadow overflow-hidden"
+            >
+              {media.endsWith(".mp4") ? (
+                <video
+                  src={media}
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  className="object-cover w-full h-full"
+                />
+              ) : (
+                <Image
+                  src={media}
+                  alt={`Thumbnail ${i + 1}`}
+                  width={100}
+                  height={80}
+                  className="object-cover w-full h-full"
+                />
+              )}
+            </button>
+          ))}
         </div>
       </motion.section>
 
@@ -235,7 +236,7 @@ export default function Home() {
           <div className="aspect-[4/5] p-4 rounded-xl shadow-lg bg-white text-gray-800 flex flex-col justify-between hover:scale-105 transition transform">
             <div>
               <h3 className="text-lg font-bold mb-2 text-gray-800">Jasa Videographer</h3>
-              <p className="text-gray-600 text-sm">1 Video Fulll Acara Rp. 300.000</p>
+              <p className="text-gray-600 text-sm">1 Video Full Acara Rp. 300.000</p>
             </div>
             <button
               onClick={() => pesanWhatsApp("Jasa Videographer")}
@@ -246,28 +247,28 @@ export default function Home() {
           </div>
 
           {/* Jasa Photographer */}
-<div className="aspect-[4/5] p-4 rounded-xl shadow-lg bg-white text-gray-800 flex flex-col justify-between hover:scale-105 transition transform">
-  <div>
-    <h3 className="text-lg font-bold mb-2">Jasa Photographer</h3>
-    <div className="space-y-2 text-sm text-gray-600">
-      <label className="flex items-center gap-2">
-        <input type="checkbox" value="1 Rol (30 foto) - Rp75.000" />
-        1 Rol (30 Foto) – Rp 75.000
-      </label>
-      <label className="flex items-center gap-2">
-        <input type="checkbox" value="2 Rol (60 foto) - Rp150.000" />
-        2 Rol (60 Foto) – Rp 150.000
-      </label>
-    </div>
-  </div>
+          <div className="aspect-[4/5] p-4 rounded-xl shadow-lg bg-white text-gray-800 flex flex-col justify-between hover:scale-105 transition transform">
+            <div>
+              <h3 className="text-lg font-bold mb-2">Jasa Photographer</h3>
+              <div className="space-y-2 text-sm text-gray-600">
+                <label className="flex items-center gap-2">
+                  <input type="checkbox" value="1 Rol (30 foto) - Rp75.000" />
+                  1 Rol (30 Foto) – Rp 75.000
+                </label>
+                <label className="flex items-center gap-2">
+                  <input type="checkbox" value="2 Rol (60 foto) - Rp150.000" />
+                  2 Rol (60 Foto) – Rp 150.000
+                </label>
+              </div>
+            </div>
 
-  <button
-    onClick={() => pesanWhatsApp("Paket Photographer")}
-    className="mt-4 px-4 py-2 bg-teal-600 text-white rounded-lg text-sm font-medium hover:bg-teal-700 transition w-fit"
-  >
-    Pesan Sekarang
-  </button>
-</div>
+            <button
+              onClick={() => pesanWhatsApp("Paket Photographer")}
+              className="mt-4 px-4 py-2 bg-teal-600 text-white rounded-lg text-sm font-medium hover:bg-teal-700 transition w-fit"
+            >
+              Pesan Sekarang
+            </button>
+          </div>
 
           {/* Layar + Proyektor */}
           <div className="aspect-[4/5] p-4 rounded-xl shadow-lg bg-white text-gray-800 flex flex-col justify-between hover:scale-105 transition transform">
