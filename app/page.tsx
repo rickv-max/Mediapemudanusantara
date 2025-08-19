@@ -207,10 +207,10 @@ useEffect(() => {
           </div>
 
           {/* Jasa Videographer */}
-          <div className="aspect-[4/5] p-4 rounded-xl shadow-lg bg-teal-700 text-white flex flex-col justify-between hover:scale-105 transition transform">
+          <div className="aspect-[4/5] p-4 rounded-xl shadow-lg bg-white text-gray-800 flex flex-col justify-between hover:scale-105 transition transform">
             <div>
               <h3 className="text-lg font-bold mb-2 text-gray-800">Jasa Videographer</h3>
-              <p className="text-gray-600 text-sm">1 Video Rp. 300.000</p>
+              <p className="text-gray-600 text-sm">1 Video Fulll Acara Rp. 300.000</p>
             </div>
             <button
               onClick={() => pesanWhatsApp("Jasa Videographer")}
@@ -221,28 +221,31 @@ useEffect(() => {
           </div>
 
           {/* Jasa Photographer */}
-          <div className="aspect-[4/5] p-4 rounded-xl shadow-lg bg-teal-700 text-white flex flex-col justify-between hover:scale-105 transition transform">
-            <div>
-              <h3 className="text-lg font-bold mb-2 text-gray-800">Jasa Photographer</h3>
-              <select
-                className="w-full border rounded-lg p-2 text-sm"
-                onChange={(e) => pesanWhatsApp(`Photographer - ${e.target.value}`)}
-              >
-                <option>Pilih Paket</option>
-                <option>1 Rol isi 30 Foto - Rp. 75.000</option>
-                <option>2 Rol isi 60 Foto - Rp. 150.000</option>
-              </select>
-            </div>
-            <button
-              onClick={() => pesanWhatsApp("Jasa Photographer")}
-              className="mt-4 px-4 py-2 bg-teal-600 text-white rounded-lg text-sm font-medium hover:bg-teal-700 transition w-fit"
-            >
-              Pesan Sekarang
-            </button>
-          </div>
+<div className="aspect-[4/5] p-4 rounded-xl shadow-lg bg-white text-gray-800 flex flex-col justify-between hover:scale-105 transition transform">
+  <div>
+    <h3 className="text-lg font-bold mb-2">Jasa Photographer</h3>
+    <div className="space-y-2 text-sm text-gray-600">
+      <label className="flex items-center gap-2">
+        <input type="checkbox" value="1 Rol (30 foto) - Rp75.000" />
+        1 Rol (30 Foto) – Rp 75.000
+      </label>
+      <label className="flex items-center gap-2">
+        <input type="checkbox" value="2 Rol (60 foto) - Rp150.000" />
+        2 Rol (60 Foto) – Rp 150.000
+      </label>
+    </div>
+  </div>
+
+  <button
+    onClick={() => pesanWhatsApp("Paket Photographer")}
+    className="mt-4 px-4 py-2 bg-teal-600 text-white rounded-lg text-sm font-medium hover:bg-teal-700 transition w-fit"
+  >
+    Pesan Sekarang
+  </button>
+</div>
 
           {/* Layar + Proyektor */}
-          <div className="aspect-[4/5] p-4 rounded-xl shadow-lg bg-teal-700 text-white flex flex-col justify-between hover:scale-105 transition transform">
+          <div className="aspect-[4/5] p-4 rounded-xl shadow-lg bg-white text-gray-800 flex flex-col justify-between hover:scale-105 transition transform">
             <div>
               <h3 className="text-lg font-bold mb-2 text-gray-800">Layar + Proyektor</h3>
               <p className="text-gray-600 text-sm">Rp. 150.000</p>
@@ -256,7 +259,7 @@ useEffect(() => {
           </div>
 
           {/* Drone */}
-          <div className="aspect-[4/5] p-4 rounded-xl shadow-lg bg-teal-700 text-white flex flex-col justify-between hover:scale-105 transition transform">
+          <div className="aspect-[4/5] p-4 rounded-xl shadow-lg bg-white text-gray-800 flex flex-col justify-between hover:scale-105 transition transform">
             <div>
               <h3 className="text-lg font-bold mb-2 text-gray-800">Drone</h3>
               <p className="text-gray-600 text-sm">Rp. 400.000 / per 1 baterai</p>
