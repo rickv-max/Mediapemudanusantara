@@ -142,7 +142,6 @@ export default function Home() {
               className="object-cover w-full h-full"
             />
           )}
-        </div>
 
         {/* Grid kecil */}
         <div className="grid grid-cols-3 gap-2 sm:gap-4 w-full">
@@ -173,6 +172,7 @@ export default function Home() {
             </button>
           ))}
         </div>
+       </div>
       </motion.section>
 
       {/* Paket Layanan */}
