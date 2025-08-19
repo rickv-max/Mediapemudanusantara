@@ -121,58 +121,61 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Preview utama */}
-        <div className="w-full h-48 sm:h-64 bg-gray-300 rounded-xl flex items-center justify-center mb-4 shadow-md overflow-hidden">
-          {selectedImage.endsWith(".mp4") ? (
-            <video
-              key={selectedImage} // ✅ biar refresh saat ganti video
-              src={selectedImage}
-              autoPlay
-              muted
-              loop
-              playsInline
-              className="object-cover w-full h-full"
-            />
-          ) : (
-            <Image
-              src={selectedImage}
-              alt="Preview"
-              width={500}
-              height={250}
-              className="object-cover w-full h-full"
-            />
-          )}
+        {/* Preview utama + Grid kecil */}
+<div className="flex flex-col gap-4">
+  {/* Preview utama */}
+  <div className="w-full h-48 sm:h-64 bg-gray-300 rounded-xl flex items-center justify-center mb-4 shadow-md overflow-hidden">
+    {selectedImage.endsWith(".mp4") ? (
+      <video
+        key={selectedImage} // ✅ biar refresh saat ganti video
+        src={selectedImage}
+        autoPlay
+        muted
+        loop
+        playsInline
+        className="object-cover w-full h-full"
+      />
+    ) : (
+      <Image
+        src={selectedImage}
+        alt="Preview"
+        width={500}
+        height={250}
+        className="object-cover w-full h-full"
+      />
+    )}
+  </div>
 
-        {/* Grid kecil */}
-        <div className="grid grid-cols-3 gap-2 sm:gap-4 w-full">
-          {["/thumb1.mp4", "/thumb2.jpg", "/thumb3.jpg"].map((media, i) => (
-            <button
-              key={i}
-              onClick={() => setSelectedImage(media)}
-              className="h-16 sm:h-20 bg-gray-300 rounded-xl shadow overflow-hidden"
-            >
-              {media.endsWith(".mp4") ? (
-                <video
-                  src={media}
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                  className="object-cover w-full h-full"
-                />
-              ) : (
-                <Image
-                  src={media}
-                  alt={`Thumbnail ${i + 1}`}
-                  width={100}
-                  height={80}
-                  className="object-cover w-full h-full"
-                />
-              )}
-            </button>
-          ))}
-        </div>
-       </div>
+  {/* Grid kecil */}
+  <div className="grid grid-cols-3 gap-2 sm:gap-4 w-full">
+    {["/thumb1.mp4", "/thumb2.jpg", "/thumb3.jpg"].map((media, i) => (
+      <button
+        key={i}
+        onClick={() => setSelectedImage(media)}
+        className="h-16 sm:h-20 bg-gray-300 rounded-xl shadow overflow-hidden"
+      >
+        {media.endsWith(".mp4") ? (
+          <video
+            src={media}
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="object-cover w-full h-full"
+          />
+        ) : (
+          <Image
+            src={media}
+            alt={`Thumbnail ${i + 1}`}
+            width={100}
+            height={80}
+            className="object-cover w-full h-full"
+          />
+        )}
+      </button>
+    ))}
+  </div>
+</div>
       </motion.section>
 
       {/* Paket Layanan */}
