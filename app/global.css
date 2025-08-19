@@ -40,10 +40,18 @@ img {
   display: block;
 }
 
-/* Grid dan flex default */
 .container {
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 1rem;
+  padding: 0; /* hilangkan padding default */
 }
+
+@media (max-width: 768px) {
+  .container {
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+}
+
