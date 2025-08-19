@@ -3,53 +3,28 @@
 @tailwind utilities;
 
 /* ========== Custom Style ========== */
-/* Pastikan semua elemen ikut ukuran layar */
-* {
-  box-sizing: border-box;
-  max-width: 100%;
-}
 
-/* Untuk body biar tidak ada scroll horizontal */
+/* Biar body default rapi */
 body {
-  margin: 0;
-  padding: 0;
-  overflow-x: hidden;
+  @apply bg-gray-50 text-gray-900 antialiased;
 }
 
-/* Default font-size & spacing di mobile */
-html {
-  font-size: 14px;
-}
-
-@media (min-width: 640px) {
-  html {
-    font-size: 16px;
-  }
-}
-
-@media (min-width: 1024px) {
-  html {
-    font-size: 18px;
-  }
-}
-
-/* Gambar biar otomatis menyesuaikan */
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-}
-
-/* Container versi mobile = full, desktop = ada batas */
+/* Container agar max-width konsisten */
 .container {
-  width: 100%;
-  margin: 0 auto;
-  padding: 0; /* default no padding */
+  @apply max-w-7xl mx-auto px-4;
 }
 
-@media (min-width: 768px) {
-  .container {
-    max-width: 1200px;   /* batas di desktop */
-    padding: 0 1rem;     /* kasih spasi kanan kiri */
-  }
+/* Heading style */
+h1, h2, h3, h4, h5, h6 {
+  @apply font-bold text-gray-900;
+}
+
+/* Navbar link */
+.nav-link {
+  @apply text-gray-700 hover:text-blue-600 transition-colors;
+}
+
+/* Button default */
+.btn-primary {
+  @apply bg-blue-600 text-white px-4 py-2 rounded-xl hover:bg-blue-700 transition;
 }
