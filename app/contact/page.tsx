@@ -5,7 +5,7 @@ export default function Page() {
   return (
     <main className="py-10">
       <h1 className="text-2xl md:text-3xl font-bold text-teal-700 text-center">Hubungi Kami</h1>
-      <form className="max-w-xl mx-auto px-4 mt-6 space-y-4">
+      <form className="max-full mx-auto px-0 mt-6 space-y-4">
         <input
           type="text"
           placeholder="Nama"
