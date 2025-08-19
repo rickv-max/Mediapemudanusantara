@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     siteName: "Media Pemuda Nusantara",
     images: [
       {
-        url: "https://mediapemudanusantara.com/og-image.jpg",
+        url: "https://mediapemudanusantara.netlify.app/logo-mpn.png",
         width: 1200,
         height: 630,
         alt: "Media Pemuda Nusantara",
