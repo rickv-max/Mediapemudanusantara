@@ -48,7 +48,7 @@ export default function Home() {
 
   // Fungsi redirect WhatsApp
   const pesanWhatsApp = (layanan: string) => {
-    const noWa = "6285856618965";
+    const noWa = "6282232453183";
     const pesan = encodeURIComponent(`Halo, saya ingin pesan layanan: ${layanan}`);
     window.open(`https://wa.me/${noWa}?text=${pesan}`, "_blank");
   };
@@ -124,7 +124,7 @@ export default function Home() {
         {/* Preview utama + Grid kecil */}
 <div className="flex flex-col gap-4">
   {/* Preview utama */}
-  <div className="w-full h-48 sm:h-64 bg-gray-300 rounded-xl flex items-center justify-center mb-4 shadow-md overflow-hidden">
+  <div className="w-full aspect-[16/9] bg-gray-300 rounded-xl flex items-center justify-center mb-4 shadow-md overflow-hidden">
     {selectedImage.endsWith(".mp4") ? (
       <video
         key={selectedImage} // ✅ biar refresh saat ganti video
@@ -349,9 +349,9 @@ export default function Home() {
           Hubungi Kami
         </h2>
         <div className="max-w-xl mx-auto space-y-3 text-center">
-          <p>📍 Jakarta, Indonesia</p>
+          <p>📍 Lumajang, jawaTimur</p>
           <p>
-            📞 <a href="tel:+6285856618965">+62 858-5661-8965</a>
+            📞 <a href="tel:6282232453183">+62 822-3245-3183</a>
           </p>
           <p>
             ✉️{" "}
