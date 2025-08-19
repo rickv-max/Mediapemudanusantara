@@ -2,120 +2,115 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { useEffect, useState } from "react";
-
-type PortfolioItem = {
-  id: number;
-  title: string;
-  description: string;
-  thumbnail: string | null;
-  video_url: string | null;
-  slug: string;
-};
-
-const BASE_URL =
-  process.env.NEXT_PUBLIC_API_BASE_URL || "http://127.0.0.1:8000";
+import { useState, useEffect } from "react"; // ✅ pakai useEffect untuk fetch API
 
 export default function Home() {
   const [selectedImage, setSelectedImage] = useState("/thumb1.jpg");
-  const [items, setItems] = useState<PortfolioItem[]>([]);
-  const [loading, setLoading] = useState(true);
+
+  // ✅ state buat portfolio dari backend
+  const [portfolio, setPortfolio] = useState([]);
 
   useEffect(() => {
-    const getData = async () => {
-      try {
-        const res = await fetch(`${BASE_URL}/portfolio/`, { cache: "no-store" });
-        const data = await res.json();
-        setItems(data);
-      } catch (e) {
-        console.error(e);
-      } finally {
-        setLoading(false);
-      }
-    };
-    getData();
+    fetch("http://127.0.0.1:8000/portfolio/")
+      .then((res) => res.json())
+      .then((data) => setPortfolio(data))
+      .catch((err) => console.error("Error fetch portfolio:", err));
   }, []);
-
   return (
-    <div className="py-6 md:py-10">
-      {/* NAVBAR SINGKAT (opsional, kalau ada navbar global bisa hapus) */}
-      <header className="sticky top-0 z-50 bg-white/90 backdrop-blur border-b border-gray-200">
-        <div className="flex items-center justify-between h-14">
-          <div className="flex items-center gap-3">
-            <Image src="/logo-mpn.png" alt="Logo MPN" width={36} height={36} />
-            <span className="font-semibold text-teal-700">Media Pemuda Nusantara</span>
-          </div>
-          <nav className="hidden sm:flex items-center gap-4">
-            <a href="#layanan" className="hover:text-teal-600">Layanan</a>
-            <a href="#portofolio" className="hover:text-teal-600">Portofolio</a>
-            <a href="#tentang" className="hover:text-teal-600">Tentang</a>
-            <a
-              href="#kontak"
-              className="ml-2 px-3 py-2 rounded-lg bg-teal-600 text-white hover:bg-teal-700"
-            >
-              Hubungi Kami
-            </a>
-          </nav>
+    <div className="min-h-screen bg-gradient-to-br from-gray-100 via-gray-200 to-gray-300 text-gray-900">
+      {/* Navbar */}
+      <header className="flex justify-between items-center px-8 py-4 sticky top-0 bg-gray-50/90 backdrop-blur z-50 border-b border-gray-300 shadow-sm">
+        {/* ✅ Logo kiri atas */}
+        <div className="flex items-center gap-2">
+          <Image
+            src="/logo-mpn.png"
+            alt="Logo MPN"
+            width={40}
+            height={40}
+            className="rounded-full"
+          />
+          <span className="text-2xl font-bold text-teal-700">
+            Media Pemuda Nusantara
+          </span>
         </div>
+
+        {/* ✅ Navigasi */}
+        <nav className="flex items-center gap-6">
+          <a href="#layanan" className="hover:text-teal-600 transition">
+            Layanan
+          </a>
+          <a href="#portofolio" className="hover:text-teal-600 transition">
+            Portofolio
+          </a>
+          <a href="#tentang" className="hover:text-teal-600 transition">
+            Tentang
+          </a>
+          <a
+            href="#kontak"
+            className="ml-4 px-4 py-2 rounded-lg bg-teal-600 hover:bg-teal-700 transition text-white"
+          >
+            Hubungi Kami
+          </a>
+        </nav>
       </header>
 
-      {/* HERO */}
+      {/* Hero */}
       <motion.section
         initial={{ opacity: 0, y: 60 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
-        className="grid grid-cols-1 md:grid-cols-2 items-center gap-8 md:gap-12 pt-8 md:pt-12"
+        className="grid grid-cols-1 md:grid-cols-2 items-center px-8 py-20 gap-12"
       >
-        <div className="space-y-6">
-          <h1 className="text-3xl md:text-5xl font-bold leading-tight text-teal-800">
+        <div>
+          <h1 className="text-4xl md:text-5xl font-bold leading-tight mb-6 text-teal-800">
             Komunitas Jasa Live Streaming & Dokumentasi
           </h1>
-          <p className="text-base md:text-lg text-gray-600">
-            MPN membantu brand, event, dan institusi menghadirkan siaran langsung
-            berkualitas serta dokumentasi foto/video yang rapi dan profesional.
+          <p className="mb-8 text-lg text-gray-600">
+            MPN membantu brand, event, dan institusi menghadirkan siaran
+            langsung berkualitas serta dokumentasi foto/video yang rapi dan
+            profesional.
           </p>
-          <div className="flex flex-wrap gap-3">
+          <div className="flex gap-4">
             <a
               href="#kontak"
-              className="px-5 py-3 rounded-lg bg-teal-600 hover:bg-teal-700 text-white"
+              className="px-6 py-3 rounded-lg bg-teal-600 hover:bg-teal-700 transition text-white"
             >
               Hubungi Kami
             </a>
             <a
               href="#portofolio"
-              className="px-5 py-3 rounded-lg border border-teal-600 text-teal-600 hover:bg-teal-600 hover:text-white"
+              className="px-6 py-3 rounded-lg border border-teal-600 text-teal-600 hover:bg-teal-600 hover:text-white transition"
             >
               Lihat Portofolio →
             </a>
           </div>
         </div>
 
-        {/* Thumbnail Preview */}
-        <div className="flex flex-col items-stretch gap-4 no-shrink">
-          <div className="relative w-full aspect-video rounded-xl overflow-hidden shadow">
+        {/* ✅ Thumbnail Preview */}
+        <div className="flex flex-col items-center">
+          <div className="w-full h-64 bg-gray-300 rounded-xl flex items-center justify-center mb-4 shadow-md overflow-hidden">
             <Image
               src={selectedImage}
               alt="Preview"
-              fill
-              sizes="(max-width: 768px) 100vw, 50vw"
-              className="object-cover"
-              priority
+              width={500}
+              height={250}
+              className="object-cover w-full h-full"
             />
           </div>
-          <div className="grid grid-cols-3 gap-3">
+          <div className="grid grid-cols-3 gap-4 w-full">
             {["/thumb1.jpg", "/thumb2.jpg", "/thumb3.jpg"].map((img, i) => (
               <button
                 key={i}
                 onClick={() => setSelectedImage(img)}
-                className="relative h-20 rounded-lg overflow-hidden shadow"
+                className="h-20 bg-gray-300 rounded-xl shadow overflow-hidden"
               >
                 <Image
                   src={img}
                   alt={`Thumbnail ${i + 1}`}
-                  fill
-                  sizes="(max-width: 768px) 33vw, 10vw"
-                  className="object-cover"
+                  width={100}
+                  height={80}
+                  className="object-cover w-full h-full"
                 />
               </button>
             ))}
@@ -123,22 +118,25 @@ export default function Home() {
         </div>
       </motion.section>
 
-      {/* PAKET LAYANAN */}
+      {/* Section Paket Layanan */}
       <motion.section
-        id="layanan"
+        id="paket"
         initial={{ opacity: 0, y: 60 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
-        className="py-16 md:py-20"
+        className="px-8 py-20 bg-gradient-to-br from-gray-200 to-gray-100 text-gray-900"
       >
-        <h2 className="text-2xl md:text-3xl font-bold mb-8 md:mb-12 text-center text-teal-700">
+        <h2 className="text-3xl font-bold mb-12 text-center text-teal-700">
           Paket Layanan
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 max-w-5xl mx-auto">
-          <div className="p-6 md:p-8 rounded-xl shadow-lg bg-teal-700 text-white">
-            <h3 className="text-xl md:text-2xl font-bold mb-4">
-              Rp. 750.000 <span className="text-sm font-normal">/ Paket Reguler</span>
+
+        <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+          {/* Paket Reguler */}
+          <div className="p-8 rounded-xl shadow-lg bg-teal-700 text-white hover:scale-105 transition transform cursor-pointer">
+            <h3 className="text-2xl font-bold mb-4">
+              Rp. 750.000{" "}
+              <span className="text-sm font-normal">/ Paket Reguler</span>
             </h3>
             <ul className="space-y-2 text-teal-100">
               <li>📷 2 Camera</li>
@@ -155,9 +153,11 @@ export default function Home() {
             </a>
           </div>
 
-          <div className="p-6 md:p-8 rounded-xl shadow-lg bg-teal-500 text-white">
-            <h3 className="text-xl md:text-2xl font-bold mb-4">
-              Rp. 1.050.000 <span className="text-sm font-normal">/ Paket Premium</span>
+          {/* Paket Premium */}
+          <div className="p-8 rounded-xl shadow-lg bg-teal-500 text-white hover:scale-105 transition transform cursor-pointer">
+            <h3 className="text-2xl font-bold mb-4">
+              Rp. 1.050.000{" "}
+              <span className="text-sm font-normal">/ Paket Premium</span>
             </h3>
             <ul className="space-y-2 text-teal-50">
               <li>📷 3 Camera</li>
@@ -176,9 +176,10 @@ export default function Home() {
         </div>
 
         {/* Jasa Tambahan */}
-        <div className="mt-10 md:mt-12 grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 max-w-5xl mx-auto">
-          <div className="p-6 md:p-8 rounded-xl shadow-lg bg-white">
-            <h3 className="text-xl md:text-2xl font-bold mb-4 text-gray-900">Jasa Videografer</h3>
+        <div className="mt-12 grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+          {/* Videografer */}
+          <div className="p-8 rounded-xl shadow-lg bg-gray-100 text-gray-900 hover:scale-105 transition transform cursor-pointer">
+            <h3 className="text-2xl font-bold mb-4">Jasa Videografer</h3>
             <ul className="space-y-2 text-gray-700">
               <li>🎥 1 Video Full Acara</li>
               <li className="font-bold">Rp. 300.000</li>
@@ -192,13 +193,20 @@ export default function Home() {
             </a>
           </div>
 
-          <div className="p-6 md:p-8 rounded-xl shadow-lg bg-white">
-            <h3 className="text-xl md:text-2xl font-bold mb-4 text-gray-900">Jasa Fotografer</h3>
+          {/* Fotografer */}
+          <div className="p-8 rounded-xl shadow-lg bg-gray-100 text-gray-900 hover:scale-105 transition transform cursor-pointer">
+            <h3 className="text-2xl font-bold mb-4">Jasa Fotografer</h3>
             <ul className="space-y-3 text-gray-700">
-              <li>📸 1 Rol (30 Foto) — <span className="font-bold">Rp. 75.000</span></li>
-              <li>📸 2 Rol (60 Foto) — <span className="font-bold">Rp. 150.000</span></li>
+              <li>
+                📸 1 Rol (30 Foto) —{" "}
+                <span className="font-bold text-gray-900">Rp. 75.000</span>
+              </li>
+              <li>
+                📸 2 Rol (60 Foto) —{" "}
+                <span className="font-bold text-gray-900">Rp. 150.000</span>
+              </li>
             </ul>
-            <div className="mt-6 flex flex-wrap gap-3">
+            <div className="mt-6 flex gap-4">
               <a
                 href="https://wa.me/6285856618965?text=Halo,%20saya%20mau%20pesan%20Fotografer%201%20Rol"
                 target="_blank"
@@ -218,51 +226,48 @@ export default function Home() {
         </div>
       </motion.section>
 
-      {/* PORTOFOLIO */}
+      {/* Portofolio */}
       <motion.section
         id="portofolio"
         initial={{ opacity: 0, y: 60 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
-        className="py-16 md:py-20 bg-gray-200 rounded-2xl"
+        className="px-8 py-20 bg-gray-200"
       >
-        <h2 className="text-2xl md:text-3xl font-bold mb-8 text-center text-teal-700">
+        <h2 className="text-3xl font-bold mb-8 text-center text-teal-700">
           Portofolio
         </h2>
-
-        {loading ? (
-          <p className="text-center text-gray-600">Memuat...</p>
-        ) : items.length === 0 ? (
-          <p className="text-center text-gray-600">Belum ada item dipublish.</p>
-        ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {items.map((it) => (
-              <article key={it.id} className="bg-white rounded-xl shadow overflow-hidden">
-                <div className="relative w-full aspect-video">
-                  {it.thumbnail ? (
-                    <Image
-                      src={it.thumbnail}
-                      alt={it.title}
-                      fill
-                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                      className="object-cover"
-                      unoptimized
-                    />
-                  ) : (
-                    <div className="absolute inset-0 grid place-items-center bg-gray-100">
-                      <span className="text-gray-500 text-sm">Tidak ada thumbnail</span>
-                    </div>
-                  )}
-                </div>
-                <div className="p-4">
-                  <h3 className="font-semibold text-lg">{it.title}</h3>
-                  <p className="text-sm text-gray-600 line-clamp-2">{it.description}</p>
-                </div>
-              </article>
-            ))}
-          </div>
-        )}
+        <div className="grid md:grid-cols-3 gap-8">
+          {portfolio.length === 0 ? (
+            <p className="col-span-3 text-center text-gray-600">
+              Belum ada portofolio
+            </p>
+          ) : (
+            portfolio.map((item) => (
+              <div
+                key={item.id}
+                className="bg-white rounded-xl shadow p-4 flex flex-col items-center"
+              >
+                {item.thumbnail ? (
+                  <Image
+                    src={item.thumbnail}
+                    alt={item.title}
+                    width={400}
+                    height={250}
+                    className="rounded-lg object-cover"
+                  />
+                ) : (
+                  <div className="h-40 w-full bg-gray-400 rounded-xl flex items-center justify-center text-gray-700">
+                    No Thumbnail
+                  </div>
+                )}
+                <h3 className="mt-4 text-lg font-semibold">{item.title}</h3>
+                <p className="text-gray-600 text-sm">{item.description}</p>
+              </div>
+            ))
+          )}
+        </div>
       </motion.section>
 
       {/* Tentang Kami */}
