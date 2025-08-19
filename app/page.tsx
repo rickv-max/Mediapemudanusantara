@@ -130,22 +130,32 @@ useEffect(() => {
             />
           </div>
           <div className="grid grid-cols-3 gap-2 sm:gap-4 w-full">
-            {["/thumb1.mp4", "/thumb2.jpg", "/thumb3.jpg"].map((img, i) => (
-              <button
-                key={i}
-                onClick={() => setSelectedImage(img)}
-                className="h-16 sm:h-20 bg-gray-300 rounded-xl shadow overflow-hidden"
-              >
-                <Image
-                  src={img}
-                  alt={`Thumbnail ${i + 1}`}
-                  width={100}
-                  height={80}
-                  className="object-cover w-full h-full"
-                />
-              </button>
-            ))}
-          </div>
+  {["/thumb1.mp4", "/thumb2.jpg", "/thumb3.jpg"].map((media, i) => (
+    <button
+      key={i}
+      onClick={() => setSelectedImage(media)}
+      className="h-16 sm:h-20 bg-gray-300 rounded-xl shadow overflow-hidden"
+    >
+      {media.endsWith(".mp4") ? (
+        <video
+          src={media}
+          className="object-cover w-full h-full"
+          muted
+          loop
+          playsInline
+        />
+      ) : (
+        <Image
+          src={media}
+          alt={`Thumbnail ${i + 1}`}
+          width={100}
+          height={80}
+          className="object-cover w-full h-full"
+        />
+      )}
+    </button>
+  ))}
+</div>
         </div>
       </motion.section>
 
