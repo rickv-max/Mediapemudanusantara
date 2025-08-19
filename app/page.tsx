@@ -5,7 +5,7 @@ import Image from "next/image";
 import { useState, useEffect, useRef } from "react";
 
 export default function Home() {
-  const [selectedImage, setSelectedImage] = useState("/thumb1.jpg");
+  const [selectedImage, setSelectedImage] = useState("/thumb1.mp4");
   const [portfolio, setPortfolio] = useState<any[]>([]);
   const portfolioRef = useRef<HTMLDivElement>(null);
 
