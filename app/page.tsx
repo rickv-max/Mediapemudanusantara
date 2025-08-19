@@ -179,129 +179,124 @@ export default function Home() {
       </motion.section>
 
       {/* Paket Layanan */}
-      <motion.section
-        id="layanan"
-        initial={{ opacity: 0, y: 60 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        viewport={{ once: true }}
-        className="px-2 sm:px-8 py-16 sm:py-20 bg-gradient-to-br from-gray-200 to-gray-100 text-gray-900"
+<motion.section
+  id="layanan"
+  initial={{ opacity: 0, y: 60 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.8 }}
+  viewport={{ once: true }}
+  className="px-2 sm:px-8 py-16 sm:py-20 bg-gradient-to-br from-gray-200 to-gray-100 text-gray-900"
+>
+  <h2 className="text-3xl font-bold mb-8 sm:mb-12 text-center text-teal-700">
+    Paket Layanan
+  </h2>
+
+  {/* --- Grid Paket Utama (Reguler + Premium) --- */}
+  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto mb-12">
+    {/* Paket Reguler */}
+    <div className="aspect-[4/3] p-4 rounded-xl shadow-lg bg-teal-700 text-white flex flex-col justify-between hover:scale-105 transition transform">
+      <div>
+        <h3 className="text-lg font-bold mb-2">
+          Rp. 750.000 <span className="text-sm font-normal">/ Paket Reguler</span>
+        </h3>
+        <ul className="space-y-1 text-teal-100 text-sm">
+          <li>📷 2 Camera</li>
+          <li>💻 Capture Card</li>
+          <li>▶️ Live Youtube / Facebook</li>
+          <li>🎞️ Record Full HD</li>
+        </ul>
+      </div>
+      <button
+        onClick={() => pesanWhatsApp("Paket Reguler")}
+        className="mt-4 px-4 py-2 bg-white text-teal-700 rounded-lg text-sm font-medium hover:bg-gray-200 transition w-fit"
       >
-        <h2 className="text-3xl font-bold mb-8 sm:mb-12 text-center text-teal-700">
-          Paket Layanan
-        </h2>
+        Pesan Sekarang
+      </button>
+    </div>
 
-        <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-8 max-w-6xl mx-auto">
-          {/* Paket Reguler */}
-          <div className="aspect-[4/5] p-4 rounded-xl shadow-lg bg-teal-700 text-white flex flex-col justify-between hover:scale-105 transition transform">
-            <div>
-              <h3 className="text-lg font-bold mb-2">
-                Rp. 750.000 <span className="text-sm font-normal">/ Paket Reguler</span>
-              </h3>
-              <ul className="space-y-1 text-teal-100 text-sm">
-                <li>📷 2 Camera</li>
-                <li>💻 Capture Card</li>
-                <li>▶️ Live Youtube / Facebook</li>
-                <li>🎞️ Record Full HD</li>
-              </ul>
-            </div>
-            <button
-              onClick={() => pesanWhatsApp("Paket Reguler")}
-              className="mt-4 px-4 py-2 bg-white text-teal-700 rounded-lg text-sm font-medium hover:bg-gray-200 transition w-fit"
-            >
-              Pesan Sekarang
-            </button>
+    {/* Paket Premium */}
+    <div className="aspect-[4/3] p-4 rounded-xl shadow-lg bg-teal-800 text-white flex flex-col justify-between hover:scale-105 transition transform">
+      <div>
+        <h3 className="text-lg font-bold mb-2">
+          Rp. 1.500.000 <span className="text-sm font-normal">/ Paket Premium</span>
+        </h3>
+        <ul className="space-y-1 text-teal-100 text-sm">
+          <li>📷 3 Camera</li>
+          <li>💻 Capture Card</li>
+          <li>▶️ Multi Live Platform</li>
+          <li>🎥 Drone (1 baterai)</li>
+          <li>🎞️ Record Full HD</li>
+        </ul>
+      </div>
+      <button
+        onClick={() => pesanWhatsApp("Paket Premium")}
+        className="mt-4 px-4 py-2 bg-white text-teal-800 rounded-lg text-sm font-medium hover:bg-gray-200 transition w-fit"
+      >
+        Pesan Sekarang
+      </button>
+    </div>
+  </div>
+
+          {/* --- Grid Layanan Tambahan --- */}
+<h3 className="text-2xl font-semibold text-center text-teal-600 mb-6">
+  Layanan Tambahan
+</h3>
+<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+  {[
+    { 
+      title: "Layar + Proyektor", 
+      harga: "Rp. 150.000",
+      desc: "Proyektor + Layar besar untuk acara."
+    },
+    { 
+      title: "Drone (1 Baterai)", 
+      harga: "Rp. 400.000",
+      desc: "Drone liputan udara, 1 baterai (±20 menit terbang)."
+    },
+    { 
+      title: "Videographer", 
+      harga: "Rp. 300.000",
+      desc: "1 Video full acara dengan kualitas HD."
+    },
+    { 
+      title: "Fotographer", 
+      type: "checkbox",
+      desc: "Pilihan jumlah foto sesuai kebutuhan."
+    },
+  ].map((layanan, i) => (
+    <div
+      key={i}
+      className="aspect-[4/3] p-4 rounded-xl shadow-lg bg-white text-gray-800 flex flex-col justify-between hover:scale-105 transition transform"
+    >
+      <div>
+        <h4 className="text-lg font-semibold mb-1">{layanan.title}</h4>
+        <p className="text-xs text-gray-500 mb-3">{layanan.desc}</p>
+
+        {/* Jika tipe checkbox (khusus Fotographer) */}
+        {layanan.type === "checkbox" ? (
+          <div className="space-y-2 text-sm">
+            <label className="flex items-center gap-2">
+              <input type="checkbox" className="w-4 h-4" /> 1 Rol (30 Foto) – Rp. 75.000
+            </label>
+            <label className="flex items-center gap-2">
+              <input type="checkbox" className="w-4 h-4" /> 2 Rol (60 Foto) – Rp. 150.000
+            </label>
           </div>
+        ) : (
+          <p className="text-indigo-600 font-bold">{layanan.harga}</p>
+        )}
+      </div>
 
-          {/* Paket Premium */}
-          <div className="aspect-[4/5] p-4 rounded-xl shadow-lg bg-teal-700 text-white flex flex-col justify-between hover:scale-105 transition transform">
-            <div>
-              <h3 className="text-lg font-bold mb-2">
-                Rp. 1.050.000{" "}
-                <span className="text-sm font-normal">/ Paket Premium</span>
-              </h3>
-              <ul className="space-y-1 text-teal-50 text-sm">
-                <li>📷 3 Camera</li>
-                <li>💻 Capture Card</li>
-                <li>▶️ Live Youtube / Facebook</li>
-                <li>🎞️ Record Full HD</li>
-              </ul>
-            </div>
-            <button
-              onClick={() => pesanWhatsApp("Paket Premium")}
-              className="mt-4 px-4 py-2 bg-white text-teal-700 rounded-lg text-sm font-medium hover:bg-gray-200 transition w-fit"
-            >
-              Pesan Sekarang
-            </button>
-          </div>
-
-          {/* Jasa Videographer */}
-          <div className="aspect-[4/5] p-4 rounded-xl shadow-lg bg-white text-gray-800 flex flex-col justify-between hover:scale-105 transition transform">
-            <div>
-              <h3 className="text-lg font-bold mb-2 text-gray-800">Jasa Videographer</h3>
-              <p className="text-gray-600 text-sm">1 Video Full Acara Rp. 300.000</p>
-            </div>
-            <button
-              onClick={() => pesanWhatsApp("Jasa Videographer")}
-              className="mt-4 px-4 py-2 bg-teal-600 text-white rounded-lg text-sm font-medium hover:bg-teal-700 transition w-fit"
-            >
-              Pesan Sekarang
-            </button>
-          </div>
-
-          {/* Jasa Photographer */}
-          <div className="aspect-[4/5] p-4 rounded-xl shadow-lg bg-white text-gray-800 flex flex-col justify-between hover:scale-105 transition transform">
-            <div>
-              <h3 className="text-lg font-bold mb-2">Jasa Photographer</h3>
-              <div className="space-y-2 text-sm text-gray-600">
-                <label className="flex items-center gap-2">
-                  <input type="checkbox" value="1 Rol (30 foto) - Rp75.000" />
-                  1 Rol (30 Foto) – Rp 75.000
-                </label>
-                <label className="flex items-center gap-2">
-                  <input type="checkbox" value="2 Rol (60 foto) - Rp150.000" />
-                  2 Rol (60 Foto) – Rp 150.000
-                </label>
-              </div>
-            </div>
-
-            <button
-              onClick={() => pesanWhatsApp("Paket Photographer")}
-              className="mt-4 px-4 py-2 bg-teal-600 text-white rounded-lg text-sm font-medium hover:bg-teal-700 transition w-fit"
-            >
-              Pesan Sekarang
-            </button>
-          </div>
-
-          {/* Layar + Proyektor */}
-          <div className="aspect-[4/5] p-4 rounded-xl shadow-lg bg-white text-gray-800 flex flex-col justify-between hover:scale-105 transition transform">
-            <div>
-              <h3 className="text-lg font-bold mb-2 text-gray-800">Layar + Proyektor</h3>
-              <p className="text-gray-600 text-sm">Rp. 150.000</p>
-            </div>
-            <button
-              onClick={() => pesanWhatsApp("Layar + Proyektor")}
-              className="mt-4 px-4 py-2 bg-teal-600 text-white rounded-lg text-sm font-medium hover:bg-teal-700 transition w-fit"
-            >
-              Pesan Sekarang
-            </button>
-          </div>
-
-          {/* Drone */}
-          <div className="aspect-[4/5] p-4 rounded-xl shadow-lg bg-white text-gray-800 flex flex-col justify-between hover:scale-105 transition transform">
-            <div>
-              <h3 className="text-lg font-bold mb-2 text-gray-800">Drone</h3>
-              <p className="text-gray-600 text-sm">Rp. 400.000 / per 1 baterai</p>
-            </div>
-            <button
-              onClick={() => pesanWhatsApp("Drone")}
-              className="mt-4 px-4 py-2 bg-teal-600 text-white rounded-lg text-sm font-medium hover:bg-teal-700 transition w-fit"
-            >
-              Pesan Sekarang
-            </button>
-          </div>
-        </div>
-      </motion.section>
+      <button
+        onClick={() => pesanWhatsApp(layanan.title)}
+        className="mt-4 px-4 py-2 bg-green-600 text-white rounded-lg text-sm font-medium hover:bg-green-700 transition w-fit"
+      >
+        Pesan Sekarang
+      </button>
+    </div>
+  ))}
+</div>
+</motion.section>
 
       {/* Portofolio */}
       <motion.section
