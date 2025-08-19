@@ -130,7 +130,7 @@ useEffect(() => {
             />
           </div>
           <div className="grid grid-cols-3 gap-2 sm:gap-4 w-full">
-            {["/thumb1.jpg", "/thumb2.jpg", "/thumb3.jpg"].map((img, i) => (
+            {["/thumb1.mp4", "/thumb2.jpg", "/thumb3.jpg"].map((img, i) => (
               <button
                 key={i}
                 onClick={() => setSelectedImage(img)}
