@@ -148,7 +148,7 @@ export default function Home() {
 
   {/* Grid kecil */}
   <div className="grid grid-cols-3 gap-2 sm:gap-4 w-full">
-    {["/thumb1.mp4", "/porto2.jpeg", "/porto3.jpeg"].map((media, i) => (
+    {["/thumb1.mp4", "/porto1.jpeg", "/porto3.jpeg"].map((media, i) => (
       <button
         key={i}
         onClick={() => setSelectedImage(media)}
