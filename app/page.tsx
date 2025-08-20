@@ -19,8 +19,8 @@ export default function Home() {
           { image: "/porto1.jpeg", title: "Haul Akbar Buju' Besina" },
           { image: "/porto2.jpeg", title: "Roudlotul Ulum" },
           { image: "/porto3.jpeg", title: "Haul Akbar" },
-          { image: "/porto1.jpeg", title: "Wisuda Ponpes Roudlotul Ulum" },
-          { image: "/porto2.jpeg", title: "Wisuda Ponpes Roudlotul Ulum" },
+          { image: "/porto4.jpeg", title: "Wisuda Ponpes Roudlotul Ulum" },
+          { image: "/porto5.jpeg", title: "Wisuda Ponpes Roudlotul Ulum" },
         ]);
       });
   }, []);
