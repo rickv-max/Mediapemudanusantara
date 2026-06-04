@@ -254,10 +254,10 @@ export default function Home() {
         {layanan.type === "checkbox" ? (
           <div className="space-y-2 text-sm mb-3">
             <label className="flex items-center gap-2">
-              <input type="checkbox" className="w-4 h-4" /> 1 Rol (30 Foto) – Rp. 75.000
+              <input type="checkbox" className="w-4 h-4" /> 1 Rol (30 Foto) – Rp. 100.000
             </label>
             <label className="flex items-center gap-2">
-              <input type="checkbox" className="w-4 h-4" /> 2 Rol (60 Foto) – Rp. 150.000
+              <input type="checkbox" className="w-4 h-4" /> 2 Rol (60 Foto) – Rp. 200.000
             </label>
           </div>
         ) : (
